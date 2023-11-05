@@ -1,0 +1,121 @@
+<div>
+    <section class="py-5 mb-5" style="background: url(images/background-pattern.jpg);">
+        <div class="container-fluid">
+          <div class="d-flex justify-content-between">
+            <h1 class="page-title pb-2">Wishlist</h1>
+            <nav class="breadcrumb fs-6">
+              <a class="breadcrumb-item nav-link" href="/">Home</a>
+              <a class="breadcrumb-item nav-link" href="#">Pages</a>
+              <span class="breadcrumb-item active" aria-current="page">Wishlist</span>
+            </nav>
+          </div>
+        </div>
+      </section>
+      <section class="shopify-cart padding-large">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="cart-table">
+                <div class="cart-header">
+                  <div class="row d-flex">
+                    <h6 class="cart-title text-uppercase text-muted col-lg-4 pb-3">Product</h6>
+                    
+                    <h6 class="cart-title text-uppercase text-muted col-lg-4 pb-3">Detail</h6>
+                  </div>
+                </div>
+                @forelse(Cart::instance('wishlist')->content() as $item)
+                <div class="cart-item border-top border-bottom">
+                  <div class="row align-items-center">
+                    <div class="col-lg-4 col-md-3">
+                      <div class="cart-info d-flex flex-wrap align-items-center mb-4">
+                        <div class="col-lg-5">
+                          <div class="card-image">
+                            <img src="{{ asset('images') }}/{{ $item->model->image }}" alt="cloth" class="img-fluid">
+                          </div>
+                        </div>
+                        <div class="col-lg-7">
+                          <div class="card-detail ps-3">
+                            <h5 class="card-title">
+                              <a href="{{ route('product',['slug'=>$item->model->slug]) }}" class="text-decoration-none">{{ $item->name }}</a>
+                            </h5>
+                            <div class="card-price">
+                              <span class="money text-dark" data-currency-usd="$1200.00">{{ $item->price }}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-7">
+                      <div class="row d-flex text-center">
+                          <div class="total-price">
+                            <span class="money text-dark">{{ $item->price * $item->qty }}</span>
+                          </div>
+                        
+                      </div>
+                    </div>
+                    <div class="col-lg-1 col-md-2">
+                      <div class="flex">
+                        <a href="#" wire:click.prevent="moveItemToCart('{{ $item->rowId }}')">
+                            <i class="bi bi-bag text-2xl  font-extrabold text-teal-600"></i>
+                        </a>
+                        <a href="#" wire:click.prevent="delete('{{ $item->rowId }}')">
+                            <i class="bi bi-trash text-2xl font-extrabold text-red-600"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                @empty
+                <div class="cart-item border-top border-bottom">
+                  <div class="row align-items-center">
+                    <p>opps no product found in your wishlist.</p>
+                  </div>
+                </div>
+                @endforelse
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-5">
+        <div class="container-fluid">
+
+          <div class="bg-secondary py-5 my-5 rounded-5" style="background: url('images/bg-leaves-img-pattern.png') no-repeat;">
+            <div class="container my-5">
+              <div class="row">
+                <div class="col-md-6 p-5">
+                  <div class="section-header">
+                    <h2 class="section-title display-4">Get <span class="text-dark">25% Discount</span> on your first purchase</h2>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictumst amet, metus, sit massa posuere maecenas. At tellus ut nunc amet vel egestas.</p>
+                </div>
+                <div class="col-md-6 p-5">
+                  <form>
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" class="form-control form-control-lg" name="name" id="name" placeholder="Name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="" class="form-label">Email</label>
+                      <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="abc@mail.com">
+                    </div>
+                    <div class="form-check form-check-inline mb-3">
+                      <label class="form-check-label" for="subscribe">
+                      <input class="form-check-input" type="checkbox" id="subscribe" value="subscribe">
+                      Subscribe to the newsletter</label>
+                    </div>
+                    <div class="d-grid gap-2">
+                      <button type="submit" class="btn btn-dark btn-lg">Submit</button>
+                    </div>
+                  </form>
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+</div>

@@ -1,0 +1,18 @@
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch" aria-labelledby="Search">
+    <div class="offcanvas-header justify-content-center">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Search</span>
+        </h4>
+        <form role="search" method="get" class="d-flex">
+          <form class="d-flex mt-3 gap-0" role="newsletter">
+            <input class="form-control form-control-lg rounded-start rounded-0 bg-light" type="email" placeholder="What are you looking for?" aria-label="What are you looking for?">
+            <button class="btn btn-dark rounded-end rounded-0" type="submit">Search</button>
+          </form>
+        </form>
+      </div>
+    </div>
+  </div>
